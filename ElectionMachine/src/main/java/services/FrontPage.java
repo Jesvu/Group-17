@@ -17,16 +17,16 @@ import data.Candidate;
 public class FrontPage {
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("election");
 	
-	
 	@GET
-	@Path("/readfish")
+	@Path("/readcandidates")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Candidate> readFish() {
+	public List<Candidate> readCandidates() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		List<Candidate> list=em.createQuery("select a from Candidate a").getResultList();
 		em.getTransaction().commit();
 		return list;
 	}	
+	
 }

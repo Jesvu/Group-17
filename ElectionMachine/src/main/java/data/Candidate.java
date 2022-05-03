@@ -24,7 +24,6 @@ public class Candidate {
 		
 	}
 	
-	
 	public int getId() {
 		return id;
 	}
@@ -80,6 +79,8 @@ public class Candidate {
 		this.ammatti = ammatti;
 	}
 	
-	
+	public String toString() { //To make it easier to print the contents of object
+		return id+": "+sukunimi+" "+etunimi+" "+puolue+" "+koti+" "+ika+" "+miksi+" "+edistaa+" "+ammatti;
+	}
 
 }
