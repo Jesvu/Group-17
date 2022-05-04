@@ -23,4 +23,8 @@ public class HelloAppEngine extends HttpServlet {
     response.getWriter().print("Hello App Engine!\r\n");
 
   }
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
+	      throws IOException {
+	  doGet(request, response);
+  }
 }
