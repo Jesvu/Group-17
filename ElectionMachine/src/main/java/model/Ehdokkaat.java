@@ -1,11 +1,15 @@
-package data;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
 
-
+/**
+ * The persistent class for the ehdokkaat database table.
+ * 
+ */
+@Entity
 @NamedQuery(name="Ehdokkaat.findAll", query="SELECT e FROM Ehdokkaat e")
 public class Ehdokkaat implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +27,6 @@ public class Ehdokkaat implements Serializable {
 
 	private String kotipaikkakunta;
 
-
 	@Column(name="MIKSI_EDUSKUNTAAN")
 	private String miksiEduskuntaan;
 
@@ -34,37 +37,19 @@ public class Ehdokkaat implements Serializable {
 
 	private String sukunimi;
 
-
+	//bi-directional many-to-one association to Vastaukset
 	@OneToMany(mappedBy="ehdokkaat")
-	private List<Answers> answers;
+	private List<Vastaukset> vastauksets;
 
 	public Ehdokkaat() {
 	}
-	
-	public Ehdokkaat(int id, String sukunimi, String etunimi, String puolue, String koti, int ika, String miksi, String mita, String ammatti, String kuva)
-	{
-		setEhdokasId(id);
-		this.sukunimi = sukunimi;
-		this.etunimi = etunimi;
-		this.puolue = puolue;
-		this.kotipaikkakunta = koti;
-		setIka(ika);
-		this.miksiEduskuntaan = miksi;
-		this.mitaAsioitaHaluatEdistaa = mita;
-		this.ammatti = ammatti;
-	
-	}
-	
+
 	public int getEhdokasId() {
 		return this.ehdokasId;
 	}
 
 	public void setEhdokasId(int ehdokasId) {
 		this.ehdokasId = ehdokasId;
-	}
-	
-	public void setEhdokasId(String ehdokasId) {
-		this.ehdokasId = Integer.valueOf(ehdokasId);
 	}
 
 	public String getAmmatti() {
@@ -90,19 +75,6 @@ public class Ehdokkaat implements Serializable {
 	public void setIka(int ika) {
 		this.ika = ika;
 	}
-	
-	public void setIka(String ika) {
-		//If user gives string and not number, set age to zero
-		try
-		{
-			this.ika = Integer.valueOf(ika);
-		}
-		catch(Exception e)
-		{
-			System.out.println("Error at adding candidate's age is "+ e);
-			this.ika = 0;
-		}
-	}
 
 	public String getKotipaikkakunta() {
 		return this.kotipaikkakunta;
@@ -111,7 +83,6 @@ public class Ehdokkaat implements Serializable {
 	public void setKotipaikkakunta(String kotipaikkakunta) {
 		this.kotipaikkakunta = kotipaikkakunta;
 	}
-
 
 	public String getMiksiEduskuntaan() {
 		return this.miksiEduskuntaan;
@@ -145,26 +116,26 @@ public class Ehdokkaat implements Serializable {
 		this.sukunimi = sukunimi;
 	}
 
-	public List<Answers> getAnswers() {
-		return this.answers;
+	public List<Vastaukset> getVastauksets() {
+		return this.vastauksets;
 	}
 
-	public void setAnswers(List<Answers> answers) {
-		this.answers = answers;
+	public void setVastauksets(List<Vastaukset> vastauksets) {
+		this.vastauksets = vastauksets;
 	}
 
-	public Answers addVastaukset(Answers answers) {
-		getAnswers().add(answers);
-//		answers.setEhdokasId(this);
+	public Vastaukset addVastaukset(Vastaukset vastaukset) {
+		getVastauksets().add(vastaukset);
+		vastaukset.setEhdokkaat(this);
 
-		return answers;
+		return vastaukset;
 	}
 
-	public Answers removeAnswers(Answers answers) {
-		getAnswers().remove(answers);
-		answers.setEhdokasId(null);
+	public Vastaukset removeVastaukset(Vastaukset vastaukset) {
+		getVastauksets().remove(vastaukset);
+		vastaukset.setEhdokkaat(null);
 
-		return answers;
+		return vastaukset;
 	}
 
 }

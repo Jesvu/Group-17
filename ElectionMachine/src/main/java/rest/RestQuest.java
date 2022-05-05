@@ -4,6 +4,7 @@ package rest;
 
 	import java.io.IOException;
 
+
 	import java.util.ArrayList;
 	import java.util.List;
 
@@ -22,7 +23,7 @@ package rest;
 	import javax.ws.rs.core.Context;
 	import javax.ws.rs.core.MediaType;
 
-	import data.*;
+	import model.*;
     import services.AnswerService;
 
 	@Path("/restquest")

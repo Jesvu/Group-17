@@ -3,7 +3,7 @@ package data;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Embeddable
+
 public class Answers implements Serializable {
 
 	private static final long serialVersionUID = 1L;
