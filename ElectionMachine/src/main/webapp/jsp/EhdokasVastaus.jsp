@@ -11,23 +11,23 @@
 </head>
 <body>
 
-<c:forEach var="answer" items="${requestScope.ehdokas.questions}">
-${answer.questions.questionId}: ${answer.questions.question} -
+<c:forEach var="kysymys" items="${requestScope.ehdokas.kysymykset}">
+${vastaus.Kysymykset.kysymysId}: ${answer.Kysymykset.kysymys} -
 
 	<c:choose>
-		<c:when test="${answer.answers == 1}">
+		<c:when test="${kysymys.kysymykset == 1}">
 			<b>Täysin eri mieltä</b>
 		</c:when>
-		<c:when test="${answer.answers == 2}">
+		<c:when test="${kysymys.kysymykset == 2}">
 			<b>Jokseenkin eri mieltä</b>
 		</c:when>
-		<c:when test="${answer.answers == 3}">
+		<c:when test="${kysymys.kysymykset == 3}">
 			<b>En osaa sanoa</b>
 		</c:when>
-		<c:when test="${answer.answers == 4}">
+		<c:when test="${kysymys.kysymykset == 4}">
 			<b>Jokseenkin samaa mieltä</b>
 		</c:when>
-		<c:when test="${answer.answers == 5}">
+		<c:when test="${kysymys.kysymykset == 5}">
 			<b>Täysin samaa mieltä</b>
 		</c:when>
 		<c:otherwise>

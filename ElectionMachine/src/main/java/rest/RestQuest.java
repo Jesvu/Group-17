@@ -38,7 +38,7 @@ package rest;
 
 		public void getAllQuestions() //throws ServletException, IOException
 		{
-			List<Questions> questionlist = new ArrayList<Questions>();
+			List<Kysymykset> questionlist = new ArrayList<Kysymykset>();
 			AnswerService answerservice = new AnswerService();
 
 			questionlist = answerservice.getAllQuestions();

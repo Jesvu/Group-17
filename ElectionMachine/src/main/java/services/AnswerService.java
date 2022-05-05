@@ -12,7 +12,7 @@ import model.*;
 public class AnswerService {
 
 
-	EntityManagerFactory emf=Persistence.createEntityManagerFactory("ElectonMachine");
+	EntityManagerFactory emf=Persistence.createEntityManagerFactory("ElectionMachine");
 
 
 	public List<Ehdokkaat> getAllCandidates()
@@ -29,11 +29,11 @@ public class AnswerService {
 
 
 	
-	public List<Questions> getAllQuestions()
+	public List<Kysymykset> getAllQuestions()
 	{
 		EntityManager em=emf.createEntityManager();
 		@SuppressWarnings("unchecked")
-		List<Questions> list = em.createQuery("select q from Questions q").getResultList();
+		List<Kysymykset> list = em.createQuery("select k from Kysymykset k").getResultList();
 		em.close();
 
 		return list;
