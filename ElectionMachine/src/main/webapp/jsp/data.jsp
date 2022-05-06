@@ -22,7 +22,7 @@
 <h2>Vastaa kysymyksiin</h2>
 <br>
 <br>
-<form method="post" action="/bestcandidates">
+<form method="post" action="/sopivatehdokkaat">
 	<c:forEach var="Kysymykset" items="${requestScope.questionlist}">
 		<b>${Kysymykset.kysymysId}: </b>${Kysymykset.kysymys} <br>
 		<br>

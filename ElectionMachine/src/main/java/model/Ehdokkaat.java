@@ -39,7 +39,8 @@ public class Ehdokkaat implements Serializable {
 
 	//bi-directional many-to-one association to Vastaukset
 	@OneToMany(mappedBy="ehdokkaat")
-	private List<Vastaukset> vastauksets;
+	private List<Vastaukset> vastaukset;
+
 
 	public Ehdokkaat() {
 	}
@@ -116,23 +117,23 @@ public class Ehdokkaat implements Serializable {
 		this.sukunimi = sukunimi;
 	}
 
-	public List<Vastaukset> getVastauksets() {
-		return this.vastauksets;
+	public List<Vastaukset> getVastaukset() {
+		return this.vastaukset;
 	}
 
-	public void setVastauksets(List<Vastaukset> vastauksets) {
-		this.vastauksets = vastauksets;
+	public void setVastaukset(List<Vastaukset> vastaukset) {
+		this.vastaukset = vastaukset;
 	}
 
 	public Vastaukset addVastaukset(Vastaukset vastaukset) {
-		getVastauksets().add(vastaukset);
+		getVastaukset().add(vastaukset);
 		vastaukset.setEhdokkaat(this);
 
 		return vastaukset;
 	}
 
 	public Vastaukset removeVastaukset(Vastaukset vastaukset) {
-		getVastauksets().remove(vastaukset);
+		getVastaukset().remove(vastaukset);
 		vastaukset.setEhdokkaat(null);
 
 		return vastaukset;

@@ -52,6 +52,26 @@ package rest;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
+		}
+		@GET
+		@Path("/readallanswers")
+		@Produces(MediaType.APPLICATION_JSON)
+		
+			public void readAllAnswers() {
+				List<Ehdokkaat> answerlist = new ArrayList<Ehdokkaat>();
+				AnswerService answerservice = new AnswerService();
+
+				answerlist = answerservice.readAllAnswers();
+				
+				
+				request.setAttribute("answerlist", answerlist);
+				RequestDispatcher rd = request.getRequestDispatcher("/jsp/EhdokasVastaus.jsp"); 
+				try {
+					rd.forward(request, response);
+				} catch (ServletException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			}
 			
 		}}
 		

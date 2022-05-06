@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,7 +13,7 @@ import model.*;
 public class AnswerService {
 
 
-	EntityManagerFactory emf=Persistence.createEntityManagerFactory("ElectionMachine");
+	EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikone");
 
 
 	public List<Ehdokkaat> getAllCandidates()
@@ -50,5 +51,29 @@ public class AnswerService {
 
 		return list;
 	}
-}
+	
+	
+	public Ehdokkaat getCandidateById(int id)
+	{
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Ehdokkaat ehdokas = em.find(Ehdokkaat.class, id);
+		em.getTransaction().commit();
 
+		em.close();
+		return ehdokas;
+	
+}
+	
+	public Kysymykset getQuestionById(int id)
+	{
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset kysymys = em.find(Kysymykset.class, id);
+		em.getTransaction().commit();
+
+		em.close();
+		return kysymys;
+
+	}
+}
