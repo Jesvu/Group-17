@@ -17,7 +17,7 @@
 	<ol>${Ehdokkaat.ehdokasId} ${Ehdokkaat.etunimi} ${Ehdokkaat.sukunimi} ${Ehdokkaat.puolue}
 	<br><b>Miksi eduskuntaan? </b>
 	<br>${Ehdokkaat.miksiEduskuntaan}
-	<br><b>Mita asioita haluat edistää?</b>
+	<br><b>Mitä asioita haluat edistää?</b>
 	<br>${Ehdokkaat.mitaAsioitaHaluatEdistaa}
 	</ol>
 </c:forEach>

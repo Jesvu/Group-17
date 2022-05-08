@@ -4,6 +4,36 @@
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     <title>Election Machine</title>
   </head>
+  
+<script>
+function readAllCandidates(){
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		  var jsoncandidatelist=this.responseText;
+		  //Add JSON string as a content of element resultall
+		  document.getElementById("resultall").innerHTML = jsoncandidatelist;
+		  //Parse json string to a Javascript object
+		  var candidatelist=JSON.parse(jsoncandidatelist);
+		  //print fish by function printOneFish.
+		  printAllCandidate(candidatelist);
+	  }
+	};
+	xmlhttp.open("GET", "/rest/electionmachine/read", true);
+	xmlhttp.send();	
+}
+function printAllCandidate(list){
+	var s="<table border='1'>";
+	for (i in list){//or for (var i=0;i<list.length;i++){
+		s=s+"<tr>";
+		s=s+"<td>"+list[i].ehdokasId;
+		s=s+"<td>"+list[i].etunimi;
+		s=s+"<td>"+list[i].sukunimi;
+	}
+	s=s+"</table>";
+	document.getElementById("allcandidates").innerHTML=s;
+}
+</script>
 
   <body>
   
@@ -16,7 +46,11 @@
 
 	<h1>Questions</h1>
 
-
+	<h1>Ajax (in progress)</h1>
+    <button onclick='readAllCanididates();'>Read all Candidates</button>
+    <p id='resultall'></p>
+    <div id='allcandidates'>
+    </div>
 
   </body>
 </html>
