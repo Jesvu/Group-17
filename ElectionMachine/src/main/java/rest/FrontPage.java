@@ -1,4 +1,4 @@
-package services;
+package rest;
 
 import java.io.IOException;
 import java.util.List;
