@@ -139,4 +139,9 @@ public class Ehdokkaat implements Serializable {
 		return vastaukset;
 	}
 
+	public String toString() {
+		return ehdokasId+" "+etunimi+ " "+sukunimi+ " "+miksiEduskuntaan+ " "+mitaAsioitaHaluatEdistaa;
+	}
+
+	
 }

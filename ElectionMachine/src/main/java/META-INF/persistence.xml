@@ -27,8 +27,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 <!--  ddlGeneration == database tables will be created, if they do not exist. The database show be created beforehand--> 
     <properties>
 	    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vaalikone?useSSL=false"  />
-	    <property name="javax.persistence.jdbc.user" value="appuser" />
+	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vaalikone?allowPublicKeyRetrieval=true"  />
+	    <property name="javax.persistence.jdbc.user" value="pena" />
 	    <property name="javax.persistence.jdbc.password" value="kukkuu" />
 	    <property name="eclipselink.ddl-generation" value="create-tables" />
 	</properties>
