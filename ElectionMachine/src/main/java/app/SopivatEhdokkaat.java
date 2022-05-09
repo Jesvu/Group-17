@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -31,6 +32,7 @@ public class SopivatEhdokkaat extends HttpServlet {
 		super();
 	}
 
+	@SuppressWarnings("unused")
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AnswerService answerservice = new AnswerService();
@@ -38,7 +40,7 @@ public class SopivatEhdokkaat extends HttpServlet {
 		questionlist = answerservice.getAllQuestions();
 
 		List<Ehdokkaat> candidatelist = answerservice.getAllCandidates();
-
+		
 
 		ArrayList<Integer> useranswerlist = new ArrayList<>();
 		String answer_string = null;
@@ -71,38 +73,41 @@ public class SopivatEhdokkaat extends HttpServlet {
 			VastausVertaus vastausvertaus = new VastausVertaus();
 			differenceSum = 0;
 
-			Ehdokkaat c = candidatelist.get(i);
-			candidatesAnswers = answerservice.getCandidateById(c.getEhdokasId()).getVastaukset();
-
-	
-			if (candidatesAnswers.size() != 0) {
+			Ehdokkaat e = candidatelist.get(i);
+			candidatesAnswers = answerservice.getCandidateById(e.getEhdokasId()).getVastaukset();
 
 			
-				for (int j = 0; j < questionlist.size(); j++) {
-
-					if (useranswerlist.get(j) != 0 && candidatesAnswers.get(j).getVastaus() != 0) 
-					{
-						candidateAnswer = candidatesAnswers.get(j);
-						difference = useranswerlist.get(j) - candidateAnswer.getVastaus();
-						differenceSum = differenceSum + Math.abs(difference);
-
-						System.out.println("ID: " + candidatelist.get(i).getEhdokasId() + ", vastaus: "
-								+ candidatesAnswers.get(j).getVastaus());
-					}
-
-				}
+			
+//			if (candidatesAnswers.size() != 0) {
+//
+//				
+//				
+//				for (int h = 0; h < questionlist.size(); h++) {
+//					
+//					if (useranswerlist.get(h) != 0 && candidatesAnswers.get(h).getVastaus() != 0)  	{
+//						
+//						candidateAnswer = candidatesAnswers.get(h);
+//						difference = useranswerlist.get(h) - candidateAnswer.getVastaus();
+//						differenceSum = differenceSum + Math.abs(difference);
+//
+//						System.out.println("ID: " + candidatelist.get(i).getEhdokasId() + ", vastaus: "
+//								+ candidatesAnswers.get(h).getVastaus());
+//						
+//					}}}
+			{
+					
 				vastausvertaus.setEhdokas_id(candidatelist.get(i).getEhdokasId());
 				vastausvertaus.setvvAmount(differenceSum);
 				vastausvertaus.setEhdokasEtunimi(candidatelist.get(i).getEtunimi());
 				vastausvertaus.setEhdokasSukunimi(candidatelist.get(i).getSukunimi());
 				VVehdokkaat.add(vastausvertaus);
 				System.out.println("ID: " + vastausvertaus.getEhdokas_id() + ", points: " + vastausvertaus.getVvAmount());
-
-				
+			}}
+//				
 		Collections.sort(VVehdokkaat);
 
 	
-		VVehdokkaat.subList(5, VVehdokkaat.size()).clear();
+		VVehdokkaat.subList(10, VVehdokkaat.size()).clear();
 
 		request.setAttribute("useranswers", useranswerlist);
 		request.setAttribute("VVehdokkaat", VVehdokkaat);
@@ -111,11 +116,11 @@ public class SopivatEhdokkaat extends HttpServlet {
 
 		try {
 			dispatcher.forward(request, response);
-		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (ServletException | IOException t) {
+			// TODO Auto-generated catcht block
+			t.printStackTrace();
 	}
 	
-
-	}}}}}
+		}
+	}}
 

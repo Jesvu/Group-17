@@ -12,6 +12,9 @@
 </head>
 <body>
 
+
+<h2>${requestScope.ehdokas.etunimi}
+	${requestScope.ehdokas.sukunimi}</h2> 
 <c:forEach var="answer" items="${requestScope.ehdokas.vastaukset}">
 ${answer.kysymykset.kysymysId}: ${answer.Kysymykset.kysymys} -
 

@@ -29,7 +29,7 @@ public class AnswerService {
 	}
 
 
-	
+
 	public List<Kysymykset> getAllQuestions()
 	{
 		EntityManager em=emf.createEntityManager();
@@ -51,8 +51,8 @@ public class AnswerService {
 
 		return list;
 	}
-	
-	
+
+
 	public Ehdokkaat getCandidateById(int id)
 	{
 		EntityManager em = emf.createEntityManager();
@@ -62,9 +62,9 @@ public class AnswerService {
 
 		em.close();
 		return ehdokas;
-	
-}
-	
+
+	}
+
 	public Kysymykset getQuestionById(int id)
 	{
 		EntityManager em = emf.createEntityManager();
