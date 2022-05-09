@@ -18,7 +18,7 @@ import services.AnswerService;
 import model.*;
 
 
-@WebServlet(name = "SopivatEhdokkaat", urlPatterns = { "/sopivatehdokkaat" })
+@WebServlet(name = "SopivatEhdokkaat", urlPatterns = { "/sopivatehdokkaat" } )
 public class SopivatEhdokkaat extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

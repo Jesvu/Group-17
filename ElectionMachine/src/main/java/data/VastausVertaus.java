@@ -36,7 +36,8 @@ public class VastausVertaus implements Comparable<VastausVertaus> {
 				this.ehdokasMiksiEduskuntaan = ehdokasMiksiEduskuntaan;
 				this.ehdokasMitaAsioitaHaluatEdistaa = ehdokasMitaAsioitaHaluatEdistaa;
 				this.ehdokasPuolue = ehdokasPuolue;
-			}
+		
+	}
 
 
 

@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jsp/css.css" /> 
 <title>Electionmachine</title>
 </head>
-
 <body>
 	<header>
 		<h1>

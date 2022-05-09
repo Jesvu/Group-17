@@ -26,6 +26,7 @@ public class AnswerService {
 		em.close();
 
 		return list;
+		
 	}
 
 
