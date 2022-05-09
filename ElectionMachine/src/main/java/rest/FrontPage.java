@@ -1,4 +1,4 @@
-package services;
+package rest;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,24 +38,6 @@ public class FrontPage {
 		em.getTransaction().commit();
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/ehdokkaat.jsp");
 		request.setAttribute("ehdokaslista", list);
-		try {
-			rd.forward(request, response);
-		} catch (ServletException | IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@GET
-	@Path("/kysymykset")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void readKysymykset() {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		List<Ehdokkaat> list=em.createQuery("select k from kysymykset k").getResultList();
-		em.getTransaction().commit();
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/kysymykset.jsp");
-		request.setAttribute("kysymyslista", list);
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
