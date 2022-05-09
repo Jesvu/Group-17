@@ -65,5 +65,9 @@ public class Kysymykset implements Serializable {
 
 		return vastaukset;
 	}
+	
+	public String toString() {
+		return kysymysId+" "+kysymys;
+	}
 
 }
