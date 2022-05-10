@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity(name = "candidate")
+@Table(name = "user")
 public class UserCandidate implements Serializable {
 	private static final long serialVersionUID = 1L;
 

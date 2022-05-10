@@ -7,9 +7,9 @@
 <h1>Login</h1>
 <form action="/rest/restlogin/login" method="POST">
 <label>Käyttäjätunnus:</label> <br>
-<input type="text" placeholder="username" name="username"> <br>
+<input type="text" placeholder="Käyttäjätunnus" name="username"> <br>
 <label>Salasana:</label> <br>
-<input type="password" placeholder="password" name="password"> <br>
+<input type="password" placeholder="Salasana" name="password"> <br>
 <button type="submit">Submit</button>
 </form>
 
