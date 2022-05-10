@@ -11,6 +11,9 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	<class>model.Ehdokkaat</class>
 	<class>model.Kysymykset</class>
 	<class>model.Vastaukset</class>
+	<class>data.UserCandidate</class>
+	<class>data.Login</class>
+	
 <!-- If using MySQL 5.7 or newer -->
 <!--  
 	as a root user in the MySQL command prompt give the commands:
