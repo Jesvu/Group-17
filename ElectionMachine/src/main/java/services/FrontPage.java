@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import model.Ehdokkaat;
+import model.Kysymykset;
 
 @Path("/electionmachine")
 public class FrontPage {
@@ -52,7 +53,7 @@ public class FrontPage {
 	public void readKysymykset() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Ehdokkaat> list=em.createQuery("select k from kysymykset k").getResultList();
+		List<Kysymykset> list=em.createQuery("select k from Kysymykset k").getResultList();
 		em.getTransaction().commit();
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/kysymykset.jsp");
 		request.setAttribute("kysymyslista", list);
