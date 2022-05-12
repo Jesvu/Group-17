@@ -15,9 +15,7 @@
 </head>
 <body>
 	<header>
-		<h1>
-			Electionmachine
-		</h1>
+		<h1><a href="/index.html">Electionmachine</a></h1>
 	</header>
 <section>
 	<div class="page">
