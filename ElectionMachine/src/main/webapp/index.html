@@ -6,32 +6,31 @@
   </head>
   
 <script>
-function readAllCandidates(){
+function readAllQuestions(){
 	var xmlhttp=new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
-		  var jsoncandidatelist=this.responseText;
+		  var jsonquestionlist=this.responseText;
 		  //Add JSON string as a content of element resultall
-		  document.getElementById("resultall").innerHTML = jsoncandidatelist;
+		  document.getElementById("resultall").innerHTML = jsonquestionlist;
 		  //Parse json string to a Javascript object
-		  var candidatelist=JSON.parse(jsoncandidatelist);
+		  var kysymyslista=JSON.parse(jsonquestionlist);
 		  //print fish by function printOneFish.
-		  printAllCandidate(candidatelist);
+		  printAllQuestions(kysymyslista);
 	  }
 	};
-	xmlhttp.open("GET", "/rest/electionmachine/read", true);
+	xmlhttp.open("GET", "/rest/electionmachine/kysymykset", true);
 	xmlhttp.send();	
 }
-function printAllCandidate(list){
+function printAllQuestions(list){
 	var s="<table border='1'>";
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr>";
-		s=s+"<td>"+list[i].ehdokasId;
-		s=s+"<td>"+list[i].etunimi;
-		s=s+"<td>"+list[i].sukunimi;
+		s=s+"<td>"+list[i].kysymysId;
+		s=s+"<td>"+list[i].kysymys;
 	}
 	s=s+"</table>";
-	document.getElementById("allcandidates").innerHTML=s;
+	document.getElementById("allquestions").innerHTML=s;
 }
 </script>
 
@@ -50,9 +49,9 @@ function printAllCandidate(list){
 	
 
 	<h1>Ajax (in progress)</h1>
-    <button onclick='readAllCanididates();'>Read all Candidates</button>
+    <button onclick='readAllQuestions();'>Read all Questions</button>
     <p id='resultall'></p>
-    <div id='allcandidates'>
+    <div id='allquestions'>
     </div>
 
   </body>

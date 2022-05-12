@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import model.Ehdokkaat;
+import model.Kysymykset;
 
 @Path("/electionmachine")
 public class FrontPage {
@@ -44,4 +45,19 @@ public class FrontPage {
 			e.printStackTrace();
 		}
 	}
+	
+	@GET
+	@Path("/kysymykset")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Kysymykset> readKysymykset() {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		List<Kysymykset> list=em.createQuery("select k from Kysymykset k").getResultList();
+		em.getTransaction().commit();
+		request.setAttribute("kysymyslista", list);
+	
+		return list;
+	}
+	
 }
