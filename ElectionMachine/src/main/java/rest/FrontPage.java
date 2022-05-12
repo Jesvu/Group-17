@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -47,15 +46,33 @@ public class FrontPage {
 	}
 	
 	@GET
-	@Path("/kysymykset")
+	@Path("/questions")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Kysymykset> readKysymykset() {
+	public void readKysymykset() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Kysymykset> list=em.createQuery("select k from Kysymykset k").getResultList();
+		List<Kysymykset> list=em.createQuery("SELECT k FROM Kysymykset k").getResultList();
 		em.getTransaction().commit();
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/kysymykset.jsp");
 		request.setAttribute("kysymyslista", list);
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@GET
+	@Path("/ehdokkaat")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Ehdokkaat> readEhdokkaat() {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		List<Ehdokkaat> list=em.createQuery("select e from Ehdokkaat e").getResultList();
+		em.getTransaction().commit();
+		request.setAttribute("ehdokaslista", list);
 	
 		return list;
 	}
