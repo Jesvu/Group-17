@@ -50,17 +50,13 @@ public class FrontPage {
 	@Path("/kysymykset")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void readKysymykset() {
+	public List<Kysymykset> readKysymykset() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		List<Kysymykset> list=em.createQuery("select k from Kysymykset k").getResultList();
 		em.getTransaction().commit();
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/kysymykset.jsp");
 		request.setAttribute("kysymyslista", list);
-		try {
-			rd.forward(request, response);
-		} catch (ServletException | IOException e) {
-			e.printStackTrace();
-		}
+	
+		return list;
 	}
 }
