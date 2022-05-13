@@ -2,61 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css"
+	href="/jsp/css.css" />
     <title>Election Machine</title>
   </head>
   
 <script>
-function readAllCandidates(){
+function readAllEhdokkaat(){
 	var xmlhttp=new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
-		  var jsoncandidatelist=this.responseText;
+		  var jsonehdokaslist=this.responseText;
 		  //Add JSON string as a content of element resultall
-		  document.getElementById("resultall").innerHTML = jsoncandidatelist;
+		  document.getElementById("resultall").innerHTML = jsonehdokaslist;
 		  //Parse json string to a Javascript object
-		  var candidatelist=JSON.parse(jsoncandidatelist);
+		  var ehdokaslista=JSON.parse(jsonehdokaslist);
 		  //print fish by function printOneFish.
-		  printAllCandidate(candidatelist);
+		  printAllEhdokkaat(ehdokaslista);
 	  }
 	};
-	xmlhttp.open("GET", "/rest/electionmachine/read", true);
+	xmlhttp.open("GET", "/rest/electionmachine/ehdokkaat", true);
 	xmlhttp.send();	
 }
-function printAllCandidate(list){
+function printAllEhdokkaat(list){
 	var s="<table border='1'>";
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr>";
 		s=s+"<td>"+list[i].ehdokasId;
 		s=s+"<td>"+list[i].etunimi;
-		s=s+"<td>"+list[i].sukunimi;
 	}
 	s=s+"</table>";
-	document.getElementById("allcandidates").innerHTML=s;
+	document.getElementById("allehdokkaat").innerHTML=s;
 }
 </script>
 
   <body>
+  	<header>
+		<h1>Electionmachine</h1>
+	</header>
+	<section>
+		<div class="page">
+			<div class="sidebar">
+				<div>
+					<a href='/rest/electionmachine/read'>Ehdokkaat</a>
+				</div>
+				&nbsp;
+				<div>
+					<a href='/rest/electionmachine/questions'>Kysymykset</a>
+				</div>
+				&nbsp;
+				<div>
+				 	<a href="/rest/restquest/getallquestions">Vastaa kysymyksiin</a>
+				</div>
+				&nbsp;
+				<div>
+				<a href="/rest/restlogin/loginpage">Kirjautuminen</a>
+				</div>
+			</div>
+		</div>
+	</section>
   
-   <a href="/rest/restquest/getallquestions">Vastaa kysymyksiin</a> 
-  
-  
-    <h1>Ehdokkaat</h1>
-
-	<a href="/rest/electionmachine/read">Näytä Ehdokkaat</a> 
-
-	<h1>Questions</h1>
-	
-	<a href="/rest/electionmachine/kysymykset">Näytä Kysymykset</a> 
-	
+   
+ 
 	
 
 	<h1>Ajax (in progress)</h1>
-    <button onclick='readAllCanididates();'>Read all Candidates</button>
+    <button onclick='readAllEhdokkaat();'>Read all Candidates</button>
     <p id='resultall'></p>
-    <div id='allcandidates'>
+    <div id='allehdokkaat'>
     </div>
     
-    <a href="/rest/restlogin/loginpage">Kirjautuminen</a>
+    
 
   </body>
 </html>

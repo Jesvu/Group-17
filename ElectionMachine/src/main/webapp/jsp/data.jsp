@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="data.*"%>
 <%@ page import="services.*"%>
@@ -16,21 +15,29 @@
 
 <body>
 	<header>
-		<h1>Electionmachine</h1>
+		<h1><a href="/index.html">Electionmachine</a></h1>
 	</header>
 	<section>
 		<div class="page">
 			<div class="sidebar">
 				<div>
-					<a href='/ehdokkaat'>Ehdokkaat</a>
+					<a href='/rest/electionmachine/read'>Ehdokkaat</a>
 				</div>
 				&nbsp;
 				<div>
-					<a href='/showkysymykset'>Kysymykset</a>
+					<a href='/rest/electionmachine/questions'>Kysymykset</a>
+				</div>
+				&nbsp;
+				<div>
+					 <a href="/rest/restquest/getallquestions">Vastaa kysymyksiin</a>
+				</div>
+				&nbsp;
+				<div>
+					<a href="/rest/restlogin/loginpage">Kirjautuminen</a>
 				</div>
 			</div>
 		</div>
-		<article>
+	<article>
 
 			<form method="post" action="/sopivatehdokkaat">
 
