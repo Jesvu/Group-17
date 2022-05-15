@@ -26,10 +26,12 @@ function readAllEhdokkaat(){
 }
 function printAllEhdokkaat(list){
 	var s="<table border='1'>";
-	for (i in list){//or for (var i=0;i<list.length;i++){
+	for (var i=0;i<list.length;i++){
 		s=s+"<tr>";
 		s=s+"<td>"+list[i].ehdokasId;
 		s=s+"<td>"+list[i].etunimi;
+		s=s+"<td>"+list[i].sukunimi;
+		s=s+"<td>"+list[i].puolue;
 	}
 	s=s+"</table>";
 	document.getElementById("allehdokkaat").innerHTML=s;
@@ -66,7 +68,7 @@ function printAllEhdokkaat(list){
  
 	
 
-	<h1>Ajax (in progress)</h1>
+	<h2>Ajax get candidates</h2>
     <button onclick='readAllEhdokkaat();'>Read all Candidates</button>
     <p id='resultall'></p>
     <div id='allehdokkaat'>
