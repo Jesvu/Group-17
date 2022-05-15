@@ -39,7 +39,6 @@ public class RestLogin {
 		for (UserCandidate user : list) {
 			   userUsername = user.getUsername();
 			   userPassword = user.getPassword();
-			   System.out.println(userUsername + ", " + userPassword);
 	         }		
 		try {
 			MD5Password = data.Login.crypt(userPassword);
