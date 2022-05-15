@@ -2,9 +2,11 @@
 
 Jesse
 
-Teki etusivun ja kysymyset ja ehdokkaat sivun
+Teki etusivun ja kysymykset ja ehdokkaat sivun. Tein myös ulkoasumuokkauksia muille sivuille.
 Etusivulla on linkkejä, ajaxia ja css.
+Model kansion tiedostoja myös tehty.
 Kysymykset ja ehdokkaat sivuilla tiedot tulevat tietokannasta.
+
 
 
 Jussi
