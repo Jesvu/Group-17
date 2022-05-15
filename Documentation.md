@@ -10,4 +10,5 @@ Kysymykset ja ehdokkaat sivuilla tiedot tulevat tietokannasta.
 Jussi
 
 Teki kirjautumisen missä tietokannasta luetaan salasana ja käyttäjätunnus.
+Basic authenticationin joka tosin ei ole vaalikoneessa käytössä.
 Loi käyttäjän tietokantaan.
