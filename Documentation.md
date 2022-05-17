@@ -14,3 +14,12 @@ Jussi
 Teki kirjautumisen missä tietokannasta luetaan salasana ja käyttäjätunnus.
 Basic authenticationin joka tosin ei ole vaalikoneessa käytössä.
 Loi käyttäjän tietokantaan.
+
+
+Tanika 
+Teki vaalikone databasen, josta tulee tiedot sivulle.
+Sivulla kävijä voi vastata kysymyksiin ja lopussa pitäisi tulostua vastauksiin perustuen sopiva vaaliehdokas. (ei toimi oikein)
+Teki css tiedoston.
+SopivatEhdokkaat.java, VastausVertaus.java, RestQuest.java, AnswerService.java
+data.jsp, VVehdokkaat.jsp, ehdokasVastaus.jsp
+
