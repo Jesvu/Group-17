@@ -13,7 +13,6 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	<class>model.Vastaukset</class>
 	<class>model.Questions</class>
 	<class>data.UserCandidate</class>
-	<class>data.Login</class>
 	
 	
 <!-- If using MySQL 5.7 or newer -->

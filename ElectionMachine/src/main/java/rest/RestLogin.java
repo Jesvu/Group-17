@@ -34,7 +34,7 @@ public class RestLogin {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikone");
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<UserCandidate> list=em.createQuery("SELECT u FROM User u").getResultList();
+		List<UserCandidate> list=em.createQuery("SELECT u FROM candidate u").getResultList();
 		em.getTransaction().commit();		
 		for (UserCandidate user : list) {
 			   userUsername = user.getUsername();
